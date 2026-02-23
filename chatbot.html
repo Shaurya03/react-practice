@@ -54,11 +54,46 @@
         );
       }
 
+      function ChatMessages() {
+        const chatMessages = [{
+          message: 'hello chatbot',
+          sender: 'user',
+          id: 'id1'
+        }, {
+          message: 'Hello! How can I help you?',
+          sender: 'robot',
+          id: 'id2'
+        }, {
+          message: `what is today's date?`,
+          sender: 'user',
+          id: 'id3'
+        }, {
+          message: 'Today is February 23',
+          sender: 'robot',
+          id: 'id4'
+        }]
+
+        return (
+          <>
+            {chatMessages.map((chatMessage) => {
+              return (
+                <ChatMessage
+                  message= {chatMessage.message}
+                  sender= {chatMessage.sender}
+                  key= {chatMessage.id}
+                />
+              );
+            })}
+          </>
+        );
+      }
+
       function App() {
         return (
           <>
             {/* ChatInput() */} 
             <ChatInput />                      {/* component syntax, let's us create html elements */}
+            {/*
             <ChatMessage 
               message="hello chatbot" 
               sender="user" 
@@ -75,6 +110,8 @@
               message="Today is February 23" 
               sender="robot" 
             />
+            */}
+            <ChatMessages />
           </>
         );
       }
