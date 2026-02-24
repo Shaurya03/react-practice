@@ -9,25 +9,39 @@
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
 
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
 
       function ChatInput({ chatMessages, setChatMessages }) {
         const [inputText, setInputText] = React.useState('');
 
-        function saveInputText() {
+        function saveInputText(event) {
           setInputText(event.target.value);
         }
 
         function sendMessage() {
-          setChatMessages([            // always create a copy of the data and then modify the copy
+          const newChatMessages = [            // always create a copy of the data and then modify the copy
              ...chatMessages,         // spread operator = takes the value in an array and copies them into a new array
             {
               message: inputText,
               sender: 'user',
               id: crypto.randomUUID()
             }
-          ]); 
+          ]; 
+
+          setChatMessages(newChatMessages);
+
+          const response = Chatbot.getResponse(inputText);
+          setChatMessages([            
+             ...newChatMessages,         
+            {
+              message: response,
+              sender: 'robot',
+              id: crypto.randomUUID()
+            }
+          ]);
           
         setInputText('');
 
