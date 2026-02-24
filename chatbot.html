@@ -55,8 +55,8 @@
       }
 
       function ChatMessages() {
-        const chatMessages = [{
-          message: 'hello chatbot',
+        const [chatMessages, setChatMessages] = React.useState([{        // array destructuring // State = data that is connected to the HTML. React.useState returns an array
+          message: 'hello chatbot',                                       // when we update the data, it will update the HTML
           sender: 'user',
           id: 'id1'
         }, {
@@ -71,10 +71,26 @@
           message: 'Today is February 23',
           sender: 'robot',
           id: 'id4'
-        }]
+        }]);
+        //const chatMessages = array[0];         // this will give the current data
+        //const setChatMessages = array[1];      // updater function = this is a function that updates the data, if not used react will not update the HTML
+        //const [chatMessages, setChatMessages] = array;     // array destructuring
+
+        function sendMessage() {
+          setChatMessages([            // always create a copy of the data and then modify the copy
+             ...chatMessages,         // spread operator = takes the value in an array and copies them into a new array
+            {
+              message: 'test',
+              sender: 'user',
+              id: crypto.randomUUID()
+            }
+          ]);                        
+        }
 
         return (
           <>
+            <button onClick={sendMessage}>Send Message</button>
+
             {chatMessages.map((chatMessage) => {
               return (
                 <ChatMessage
