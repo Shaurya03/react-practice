@@ -21,7 +21,7 @@
           setInputText(event.target.value);
         }
 
-        function sendMessage() {
+        async function sendMessage() {
           const newChatMessages = [            // always create a copy of the data and then modify the copy
              ...chatMessages,         // spread operator = takes the value in an array and copies them into a new array
             {
@@ -33,7 +33,7 @@
 
           setChatMessages(newChatMessages);
 
-          const response = Chatbot.getResponse(inputText);
+          const response = await Chatbot.getResponseAsync(inputText);
           setChatMessages([            
              ...newChatMessages,         
             {
