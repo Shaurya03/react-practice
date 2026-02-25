@@ -47,6 +47,14 @@
 
         }
 
+        function handleKeyDown(event) {
+          if (event.key === 'Enter') {
+            sendMessage();
+          } else if (event.key === 'Escape') {
+            setInputText('');
+          }
+        }
+
         return (
           <>                                 {/* fragment, group elements together without creating an extra div */}
             {/* <input></input>               every element needs closing tag in jsx */} 
@@ -55,6 +63,7 @@
               size="30" 
               onChange={saveInputText}
               value={inputText}
+              onKeyDown={handleKeyDown}
             />                                {/* self-closing tag */}
             <button onClick={sendMessage}>
               Send
