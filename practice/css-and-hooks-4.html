@@ -2,6 +2,30 @@
 <html>
   <head>
     <title>CSS and Hooks</title>
+
+    <style>
+      body {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: Arial;
+      }
+
+      .counter-button {
+        background-color: rgb(25,135,84);
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        margin-right: 10px;
+      }
+
+      .counter-container {
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        align-items: center;
+        background-color: rgb(222,222,222);
+      }
+    </style>
   </head>
   <body>
     <div class="js-container"></div>
@@ -44,21 +68,25 @@
     }
 
     return (
-      <div>
+      <div className="counter-container">
         <button
+          className="counter-button"
           onClick={increaseCount}
           ref={buttonRef}>
           Clicked {count} {count === 1 ? 'time' : 'times'}
         </button>
         <button 
+          className="counter-button"
           onClick={resetCount}>
           Reset
         </button>
         <button
+          className="counter-button"
           onClick={autoClick}>
           Auto Click
         </button>
         <button
+          className="counter-button"
           onClick={stopAutoClick}>
           Stop Auto Click
         </button>
