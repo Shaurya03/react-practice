@@ -80,6 +80,11 @@
         text-align: center;
       }
 
+      .loading-image {
+        height: 40px;
+        margin: -15px;
+      }
+
     </style>
   </head>
   <body>
@@ -122,7 +127,7 @@
           setChatMessages([
             ...newChatMessages,
             {
-              message: 'Loading...',
+              message: <img className="loading-image" src="loading-spinner.gif" />,
               sender: 'robot',
               id: crypto.randomUUID()
             }
