@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect } from 'react';
 
 export function useAutoScroll(dep) {
          const containerRef = useRef(null);           // useRef = this is a hook that lets us create a reference to an HTML element, we can use this reference to access the element and its properties
