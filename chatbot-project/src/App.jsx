@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { Chatbot } from 'supersimpledev'
 import { useAutoScroll } from './hooks/useAutoScroll';
+import RobotProfileImage from './assets/robot.png';
+import UserProfileImage from './assets/user.png';
+import LoadingSpinnerGif from './assets/loading-spinner.gif';
 import './App.css'
 
  function ChatInput({ chatMessages, setChatMessages }) {
@@ -32,7 +35,7 @@ import './App.css'
           setChatMessages([
             ...newChatMessages,
             {
-              message: <img className="loading-image" src="loading-spinner.gif" />,
+              message: <img className="loading-image" src={LoadingSpinnerGif} />,
               sender: 'robot',
               id: crypto.randomUUID()
             }
@@ -102,7 +105,7 @@ import './App.css'
             : 'chat-message-robot'
           }>
             {sender === 'robot' && (
-              <img src="robot.png" 
+              <img src={RobotProfileImage} 
                 className="chat-message-profile"
               />
             )}
@@ -110,7 +113,7 @@ import './App.css'
               {message}
             </div>
             {sender === 'user' && (
-              <img src="user.png" 
+              <img src={UserProfileImage} 
                 className="chat-message-profile"
               />
             )}
