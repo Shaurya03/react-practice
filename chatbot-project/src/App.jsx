@@ -6,7 +6,13 @@ import { initializeChatbot } from './chatbot-config/chatbotConfig';
 import './App.css';
 
 function App() {
-  const [chatMessages, setChatMessages] = useState([]);
+  const [chatMessages, setChatMessages] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem('messages')) || [];
+    } catch {
+      return [];
+    }
+  });
   /*
   const [chatMessages, setChatMessages] = React.useState([{        // useState = this is a hook, hooks are functions that let us use react features in functional components
     message: 'hello chatbot',                                      // array destructuring // State = data that is connected to the HTML. React.useState returns an array           
@@ -33,6 +39,10 @@ function App() {
   useEffect(() => {
     initializeChatbot(Chatbot);
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('messages', JSON.stringify(chatMessages))
+  }, [chatMessages]);
 
   return (
     <div className="app-container">
