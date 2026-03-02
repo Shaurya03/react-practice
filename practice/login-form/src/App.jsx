@@ -1,22 +1,31 @@
 import { useState } from 'react';
 import './App.css';
 
-function App() {
-  const [showPassword, setShowPassword] = useState(false);
+function Title() {
+  return (
+    <div className="title">
+        Hello, Welcome to my website
+    </div>
+  );
+}
 
+function EmailInput() {
   return (
     <div>
-      <div className="title">
-        Hello, Welcome to my website
-      </div>
-      <div>
       <input 
         type="text" 
         placeholder="Email"
         className="login-input"  
       />
-      </div>
-      <div>
+    </div>
+  );
+}
+
+function PasswordInput() {
+  const [showPassword, setShowPassword] = useState(false);
+
+  return (
+    <div>
       <input 
         type={showPassword ? "text" : "password"} 
         placeholder="Password" 
@@ -27,7 +36,13 @@ function App() {
         onClick={() => setShowPassword(prev => !prev)}>
         {showPassword ? "Hide Password" : "Show Password"}
       </button>
-      </div>
+    </div>
+  );
+}
+
+function AuthButtons() {
+  return (
+    <div>
       <button 
         className="login-button">
         Login
@@ -36,6 +51,17 @@ function App() {
         className="login-button">
         Sign Up
       </button>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <Title />
+      <EmailInput />
+      <PasswordInput />
+      <AuthButtons />
     </div>
   );
 }
