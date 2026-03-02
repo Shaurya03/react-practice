@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ChatInput } from './components/ChatInput';
 import { ChatMessages } from './components/ChatMessages';
+import { Chatbot } from 'supersimpledev';
+import { initializeChatbot } from './chatbot-config/chatbotConfig';
 import './App.css';
 
 function App() {
@@ -27,6 +29,10 @@ function App() {
   //const chatMessages = array[0];         // this will give the current data
   //const setChatMessages = array[1];      // updater function = this is a function that updates the data, if not used react will not update the HTML
   //const [chatMessages, setChatMessages] = array;     // array destructuring
+
+  useEffect(() => {
+    initializeChatbot(Chatbot);
+  }, []);
 
   return (
     <div className="app-container">
