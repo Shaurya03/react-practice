@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import './PasswordInput.css';
+import '../Shared.css';
 
 export function PasswordInput() {
   const [showPassword, setShowPassword] = useState(false);
@@ -11,7 +13,7 @@ export function PasswordInput() {
         className="login-input" 
       />
       <button 
-        className="login-button" 
+        className="show-password-button" 
         onClick={() => setShowPassword(prev => !prev)}>
         {showPassword ? "Hide Password" : "Show Password"}
       </button>

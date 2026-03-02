@@ -1,3 +1,5 @@
+import '../Shared.css';
+
 export function EmailInput() {
   return (
     <div>

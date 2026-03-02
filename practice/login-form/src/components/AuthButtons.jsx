@@ -1,3 +1,5 @@
+import './AuthButtons.css';
+
 export function AuthButtons() {
   return (
     <div>
