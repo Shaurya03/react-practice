@@ -62,6 +62,10 @@ export function ChatInput({ chatMessages, setChatMessages }) {
     }
   }
 
+  function clearMessages() {
+    setChatMessages([]);
+  }
+
   return (
     <div className="chat-input-container">                                 {/* fragment, group elements together without creating an extra div */}
       {/* <input></input>               every element needs closing tag in jsx */} 
@@ -74,10 +78,15 @@ export function ChatInput({ chatMessages, setChatMessages }) {
         className="chat-input"
       />                                {/* self-closing tag */}
       <button
-          onClick={sendMessage}
-          className="send-button">
+        onClick={sendMessage}
+        className="send-button">
         Send
-      </button>      
+      </button> 
+      <button
+        onClick={clearMessages}
+        className="clear-button">
+         Clear
+      </button>
     </div>
   );
 }
