@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
 import { useEffect, useState } from 'react';
 import { CheckoutHeader } from './CheckoutHeader';
 import { OrderSummary } from './OrderSummary';
@@ -24,8 +25,10 @@ export function CheckoutPage({ cart, loadCart }) {
 
   return (
     <>
-      <title>Checkout</title>
-      <link rel="icon" href="images/cart-favicon.png" />
+      <Helmet>
+        <title>Checkout</title>
+        <link rel="icon" href="images/cart-favicon.png" />
+      </Helmet>
 
       <CheckoutHeader cart={cart} />
 

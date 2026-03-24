@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
 import { useState, useEffect } from 'react';
 import { Header } from '../../components/Header';
 import { OrdersGrid } from './OrdersGrid';
@@ -17,18 +18,20 @@ export function OrdersPage({ cart }) {
     fetchOrdersData();
   }, []);
 
-return (
-  <>
-    <title>Orders</title>
-    <link rel="icon" href="images/orders-favicon.png" />
+  return (
+    <>
+      <Helmet>
+        <title>Orders</title>
+        <link rel="icon" href="images/orders-favicon.png" />
+      </Helmet>
 
-    <Header cart={cart} />
+      <Header cart={cart} />
 
-    <div className="orders-page">
-      <div className="page-title">Your Orders</div>
+      <div className="orders-page">
+        <div className="page-title">Your Orders</div>
 
-      <OrdersGrid orders={orders} />
-    </div>
-  </>
-);
+        <OrdersGrid orders={orders} />
+      </div>
+    </>
+  );
 }

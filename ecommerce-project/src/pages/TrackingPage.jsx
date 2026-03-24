@@ -1,5 +1,6 @@
 import axios from 'axios';
 import dayjs from 'dayjs';
+import { Helmet } from 'react-helmet-async';
 import { useEffect, useState } from 'react';
 import { Header } from '../components/Header';
 import { Link, useParams } from 'react-router';
@@ -15,14 +16,14 @@ export function TrackingPage({ cart }) {
       const response = await axios.get(`/api/orders/${orderId}?expand=products`);
       setOrder(response.data);
     };
-    
+
     fetchTrackingData();
   }, [orderId]);
 
   if (!order) {
     return null;
   }
-  
+
   const orderProduct = order.products.find((orderProduct) => {
     return orderProduct.productId === productId;
   });
@@ -41,9 +42,10 @@ export function TrackingPage({ cart }) {
 
   return (
     <>
-
-      <title>Tracking</title>
-      <link rel="icon" href="images/tracking-favicon.png" />
+      <Helmet>
+        <title>Tracking</title>
+        <link rel="icon" href="images/tracking-favicon.png" />
+      </Helmet>
 
       <Header cart={cart} />
 
