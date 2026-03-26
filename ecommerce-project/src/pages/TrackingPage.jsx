@@ -31,14 +31,11 @@ export function TrackingPage({ cart }) {
   const totalDeliveryTimeMs = orderProduct.estimatedDeliverytimeMs - order.orderTimeMs;
   const timePassedMs = dayjs().valueOf() - order.orderTimeMs;
 
-  let deliveryPercent = (timePassedMs / totalDeliveryTimeMs) * 100;
-  if (deliveryPercent > 100) {
-    deliveryPercent = 100;
-  }
+  let deliveryPercent = Math.min(100, Math.round((timePassedMs / totalDeliveryTimeMs) * 100));
 
   const isPreparing = deliveryPercent < 33;
   const isShipped = deliveryPercent >= 33 && deliveryPercent < 100;
-  const isDelivered = deliveryPercent === 100;
+  const isDelivered = deliveryPercent >= 100;
 
   return (
     <>
