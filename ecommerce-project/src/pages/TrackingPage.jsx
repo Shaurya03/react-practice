@@ -28,14 +28,14 @@ export function TrackingPage({ cart }) {
     return orderProduct.productId === productId;
   });
 
-  const totalDeliveryTimeMs = orderProduct.estimatedDeliverytimeMs - order.orderTimeMs;
+  const totalDeliveryTimeMs = orderProduct.estimatedDeliveryTimeMs - order.orderTimeMs;
   const timePassedMs = dayjs().valueOf() - order.orderTimeMs;
 
   let deliveryPercent = Math.min(100, Math.round((timePassedMs / totalDeliveryTimeMs) * 100));
 
   const isPreparing = deliveryPercent < 33;
   const isShipped = deliveryPercent >= 33 && deliveryPercent < 100;
-  const isDelivered = deliveryPercent >= 100;
+  const isDelivered = deliveryPercent === 100;
 
   return (
     <>
@@ -53,7 +53,7 @@ export function TrackingPage({ cart }) {
           </Link>
 
           <div className="delivery-date">
-            {deliveryPercent >= 100 ? 'Delivered' : 'Arriving on'}
+            {deliveryPercent >= 100 ? 'Delivered on' : 'Arriving on'}
             {dayjs(orderProduct.estimatedDeliveryTimeMs).format(' dddd, MMMM D')}
           </div>
 
