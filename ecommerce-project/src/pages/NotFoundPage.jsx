@@ -7,7 +7,6 @@ export function NotFoundPage({ cart }) {
     <>
       <Helmet>
         <title>404 Page Not Found</title>
-        <link rel="icon" href="images/not-found-favicon.png" />
       </Helmet>
 
       <Header cart={cart} />

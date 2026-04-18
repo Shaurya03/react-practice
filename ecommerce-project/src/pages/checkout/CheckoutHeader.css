@@ -1,11 +1,11 @@
 .checkout-header {
-  height: 60px;
-  padding-left: 30px;
-  padding-right: 30px;
+  height: 70px;
+  padding: 0 30px;
   background-color: white;
 
   display: flex;
   justify-content: center;
+  align-items: center;
 
   position: fixed;
   top: 0;
@@ -19,16 +19,20 @@
   max-width: 1100px;
 
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
 .checkout-header .checkout-header-left-section {
-  width: 200px;
+  display: flex;
+  align-items: center;
+
 }
 
 .checkout-header .logo {
-  height: 26px;
-  margin-top: 0px;
+  height: 45px;
+  object-fit: contain;
+  margin-top: 5px;
 }
 
 .checkout-header .mobile-logo {
@@ -63,7 +67,7 @@
 }
 
 .checkout-header .return-to-home-link {
-  color: rgb(25, 135, 84);
+  color: rgb(31, 41, 55);
 
   text-decoration: none;
   cursor: pointer;

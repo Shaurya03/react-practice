@@ -22,7 +22,6 @@ export function OrdersPage({ cart, loadCart }) {
     <>
       <Helmet>
         <title>Orders</title>
-        <link rel="icon" href="images/orders-favicon.png" />
       </Helmet>
 
       <Header cart={cart} />

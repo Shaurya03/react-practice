@@ -89,12 +89,13 @@
 }
 
 .home-page .product-rating-stars {
+  filter: grayscale(1) brightness(0.3);
   width: 100px;
   margin-right: 6px;
 }
 
 .home-page .product-rating-count {
-  color: rgb(25, 135, 84);
+  color: rgb(31, 41, 55);
   cursor: auto;
   margin-top: 3px;
 }
@@ -113,7 +114,7 @@
 }
 
 .home-page .added-to-cart {
-  color: rgb(25, 135, 84);
+  color: rgb(31, 41, 55);
   font-size: 16px;
 
   display: flex;
@@ -123,6 +124,7 @@
 }
 
 .home-page .added-to-cart img {
+  filter: grayscale(1) brightness(0.3);
   height: 19px;
   margin-right: 6px;
 }

@@ -33,7 +33,6 @@ export function CheckoutPage({ cart, loadCart }) {
     <>
       <Helmet>
         <title>Checkout</title>
-        <link rel="icon" href="images/cart-favicon.png" />
       </Helmet>
 
       <CheckoutHeader cart={cart} />

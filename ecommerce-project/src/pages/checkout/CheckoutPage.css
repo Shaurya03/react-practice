@@ -55,7 +55,7 @@
 }
 
 .checkout-page .delivery-date {
-  color: rgb(25, 135, 84);
+  color: rgb(17, 24, 39);
   font-weight: 700;
   font-size: 19px;
   margin-top: 5px;
@@ -125,7 +125,7 @@
 }
 
 .checkout-page .delivery-option-input:focus-visible {
-  outline: 2px solid #4CAF50;
+  outline: 2px solid rgb(17, 24, 39);
 }
 
 .checkout-page .delivery-option-date {
@@ -166,7 +166,7 @@
 }
 
 .checkout-page .total-row {
-  color: rgb(25, 135, 84);
+  color: rgb(17, 24, 39);
   font-weight: 700;
   font-size: 18px;
 

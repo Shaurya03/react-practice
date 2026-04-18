@@ -25,7 +25,6 @@ export function HomePage({ cart, loadCart }) {
     <>
       <Helmet>
         <title>Ecommerce Project</title>
-        <link rel="icon" href="images/home-favicon.png" />
       </Helmet>
       
       <Header cart={cart}/>
