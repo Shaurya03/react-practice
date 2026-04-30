@@ -1,0 +1,50 @@
+import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
+import { useEffect, useState } from 'react';
+import { CheckoutHeader } from './CheckoutHeader';
+import { OrderSummary } from './OrderSummary';
+import { PaymentSummary } from './PaymentSummary';
+import './CheckoutPage.css';
+
+
+export function CheckoutPage({ cart, loadCart }) {
+  const [deliveryOptions, setDeliveryOptions] = useState([]);
+  const [paymentSummary, setPaymentSummary] = useState(null);
+
+  useEffect(() => {
+    const fetchDeliveryData = async () => {
+      const response = await axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
+      setDeliveryOptions(response.data);
+    };
+
+    fetchDeliveryData();
+  }, []);
+
+  useEffect(() => {
+    const fetchPaymentData = async () => {
+      const response = await axios.get('/api/payment-summary')
+      setPaymentSummary(response.data);
+    };
+
+    fetchPaymentData();
+  }, [cart]);
+
+  return (
+    <>
+      <Helmet>
+        <title>Checkout</title>
+      </Helmet>
+
+      <CheckoutHeader cart={cart} />
+
+      <div className="checkout-page">
+        <div className="page-title">Review your order</div>
+
+        <div className="checkout-grid">
+          <OrderSummary cart={cart} deliveryOptions={deliveryOptions} loadCart={loadCart} />
+          <PaymentSummary paymentSummary={paymentSummary} loadCart={loadCart} />
+        </div>
+      </div>
+    </>
+  );
+}
